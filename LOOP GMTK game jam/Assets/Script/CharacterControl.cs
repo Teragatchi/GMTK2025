@@ -24,7 +24,7 @@ public class CharacterControl : MonoBehaviour
         Vector3 direction = (target - transform.position);
         direction.y = 0;
 
-        if (direction.magnitude < 0.1f)
+        if (direction.magnitude < 1f)
         {
             rb.linearVelocity = Vector3.zero;
             return;
