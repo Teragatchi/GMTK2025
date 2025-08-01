@@ -18,13 +18,11 @@ public class PlayerMechanic : MonoBehaviour
     {
         if (collision.TryGetComponent<GarmentScript>(out var garment))
         {
-            //if (Input.GetMouseButtonDown(0))
-            //{
-            var inventory = GetComponent<PlayerThreadInventory>();
-            inventory.AddThread(garment.GarmentColor, garment.ThreadAmount);
-            Destroy(collision.gameObject); // simulate "eating"
-            //}
-
+            garment.StartShrink(() =>
+            {
+                GetComponent<PlayerThreadInventory>().AddThread(garment.GarmentColor, garment.ThreadAmount);
+                UIThread.Instance.AddColor(garment.GarmentColor);
+            });
         }
     }
 }
