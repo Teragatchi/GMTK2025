@@ -1,15 +1,27 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraMovement : MonoBehaviour
 {
-    [SerializeField] private Transform target;
-    [SerializeField] private float followSpeed = 5f;
+    [SerializeField] private float zoomSpeed = 5f;
+    [SerializeField] private float minZoom = 2f;
+    [SerializeField] private float maxZoom = 10f;
 
-    private void LateUpdate()
+    private Camera cam;
+
+    private void Awake()
     {
-        if (!target) return;
+        cam = GetComponent<Camera>();
+    }
 
-        Vector3 newPos = new Vector3(target.position.x, target.position.y, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, newPos, followSpeed * Time.deltaTime);
+    private void Update()
+    {
+        float scroll = Mouse.current.scroll.ReadValue().y;
+
+        if (Mathf.Abs(scroll) > 0.01f)
+        {
+            cam.orthographicSize -= scroll * zoomSpeed * Time.deltaTime;
+            cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
+        }
     }
 }
