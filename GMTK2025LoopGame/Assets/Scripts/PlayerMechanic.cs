@@ -14,15 +14,15 @@ public class PlayerMechanic : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.TryGetComponent<GarmentScript>(out var garment))
+        if (collision.TryGetComponent<GarmentScript>(out var garment))
         {
             //if (Input.GetMouseButtonDown(0))
             //{
-                var inventory = GetComponent<PlayerThreadInventory>();
-                inventory.AddThread(garment.GarmentColor, garment.ThreadAmount);
-                Destroy(other.gameObject); // simulate "eating"
+            var inventory = GetComponent<PlayerThreadInventory>();
+            inventory.AddThread(garment.GarmentColor, garment.ThreadAmount);
+            Destroy(collision.gameObject); // simulate "eating"
             //}
 
         }
