@@ -41,7 +41,7 @@ public class UIThread : MonoBehaviour
             }
             else
             {
-                threadSlots[i].gameObject.SetActive(false); // Hide empty slots
+               // threadSlots[i].gameObject.SetActive(false); // Hide empty slots
             }
         }
     }
