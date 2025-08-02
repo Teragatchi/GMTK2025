@@ -6,7 +6,7 @@ public class UIThread : MonoBehaviour
 {
     public static UIThread Instance;
 
-    [SerializeField] private Image[] threadSlots = new Image[3]; // Top to bottom: [0]=Top, [1]=Mid, [2]=Bottom
+    [SerializeField] public Image[] threadSlots = new Image[3]; // Top to bottom: [0]=Top, [1]=Mid, [2]=Bottom
     private readonly Queue<Color> colorQueue = new();
 
     private void Awake()
