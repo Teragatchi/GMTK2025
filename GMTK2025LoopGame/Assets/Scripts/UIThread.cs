@@ -7,7 +7,7 @@ public class UIThread : MonoBehaviour
     public static UIThread Instance;
 
     [SerializeField] private Image[] threadSlots = new Image[3]; // Top to bottom: [0]=Top, [1]=Mid, [2]=Bottom
-    private readonly List<Color> colorStack = new();
+    private readonly Queue<Color> colorQueue = new();
 
     private void Awake()
     {
@@ -17,31 +17,34 @@ public class UIThread : MonoBehaviour
     public void AddColor(Color color)
     {
         // If color already exists, remove it so it can move to bottom
-        colorStack.Remove(color);
+        //colorStack.Remove(color);
 
-        // Add to end (bottom)
-        colorStack.Add(color);
+        // Add newest to the end (bottom slot)
+        colorQueue.Enqueue(color);
 
-        // Limit to 3 colors max
-        if (colorStack.Count > 3)
-            colorStack.RemoveAt(0); // Remove top-most
+        // Remove oldest if over 3
+        if (colorQueue.Count > 3)
+            colorQueue.Dequeue();
 
         UpdateUI();
     }
 
     private void UpdateUI()
     {
-        // Fill all slots with current colorStack (top-down)
+        var colors = new List<Color>(colorQueue);
+        int colorCount = colors.Count;
+
         for (int i = 0; i < threadSlots.Length; i++)
         {
-            if (i < colorStack.Count)
+            int colorIndex = colorCount - (threadSlots.Length - i);
+            if (colorIndex >= 0)
             {
-                threadSlots[i].color = colorStack[i];
-                threadSlots[i].gameObject.SetActive(true);
+                threadSlots[i].color = colors[colorIndex];
+                //threadSlots[i].gameObject.SetActive(true);
             }
             else
             {
-               // threadSlots[i].gameObject.SetActive(false); // Hide empty slots
+                //threadSlots[i].gameObject.SetActive(false);
             }
         }
     }
