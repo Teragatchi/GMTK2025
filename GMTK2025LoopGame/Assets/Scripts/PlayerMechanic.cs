@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -12,11 +13,13 @@ public class PlayerMechanic : MonoBehaviour
     [SerializeField] private GameObject HookThreadObject;
     //[SerializeField] private int ThreadLossOnHook = 10;
 
-    private bool PlayerIsFalling;
+    //private bool PlayerIsFalling;
     private PlayerMovement playerMoveScript;
     private PlayerThreadInventory playerThreadInv;
     private Vector3 MousePos;
 
+    private HashSet<Collider2D> safeSurfaces = new();
+    public bool PlayerIsFalling => safeSurfaces.Count == 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,7 +38,7 @@ public class PlayerMechanic : MonoBehaviour
         MousePos.z = 0f; // explicitly flatten
 
         //Debug.Log($"Player is falling bool : {PlayerIsFalling}");
-        if ( PlayerIsFalling)
+        if (PlayerIsFalling)
         {
             StartCoroutine(ShrinkPlayerDeath());
         }
@@ -90,8 +93,18 @@ public class PlayerMechanic : MonoBehaviour
 
     }
 
+    private bool IsSafeSurface(Collider2D col)
+    {
+        return col.name == "Table" || col.tag == "Walkable";
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (IsSafeSurface(collision))
+        {
+            safeSurfaces.Add(collision);
+        }
+
         if (collision.TryGetComponent<GarmentScript>(out var garment))
         {
             garment.StartShrink(() =>
@@ -101,26 +114,42 @@ public class PlayerMechanic : MonoBehaviour
             });
         }
 
-        if(collision.name == "Table" || collision.name == "ThreadObject")
-        {
-            PlayerIsFalling = false;
-        }
+        //if(collision.name == "Table")
+        //{
+        //    PlayerIsFalling = false;
+        //}
+        //if (collision.tag == "Walkable")
+        //{
+        //    PlayerIsFalling = false;
+        //    Debug.Log("player entered Thread");
+        //}
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.name == "Table" || collision.name == "ThreadObject")
+        if (IsSafeSurface(collision))
         {
-            PlayerIsFalling = true;
+            safeSurfaces.Remove(collision);
         }
+
+        //if (collision.name == "Table" )
+        //{
+        //    PlayerIsFalling = true;
+        //}
+        //if (collision.tag == "Walkable")
+        //{
+        //    PlayerIsFalling = true;
+        //    Debug.Log("player LEFT Thread");
+        //}
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if(collision.name == "Table")
-        {
-            PlayerIsFalling = false;
-        }
-    }
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if(collision.name == "Table" || collision.tag == "Walkable")
+    //    {
+    //        PlayerIsFalling = false;
+    //    }
+    //}
 
     private IEnumerator ShrinkPlayerDeath()
     {

@@ -131,10 +131,10 @@ TextureImporter:
       name: weaving_sprite_sheet_0
       rect:
         serializedVersion: 2
-        x: 53
-        y: 342
-        width: 197
-        height: 232
+        x: 0
+        y: 300
+        width: 250
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60617221448c25e43a21848e89d60370
-      internalID: 1587625653
+      spriteID: 268e35d11d9cb704d8196e93154cd574
+      internalID: 928822763
       vertices: []
       indices: 
       edges: []
@@ -153,10 +153,10 @@ TextureImporter:
       name: weaving_sprite_sheet_1
       rect:
         serializedVersion: 2
-        x: 274
-        y: 340
-        width: 197
-        height: 232
+        x: 250
+        y: 300
+        width: 250
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,8 +165,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4109246c9e6c5f447b64cd5ae04cd698
-      internalID: 890109480
+      spriteID: baaeb45a707a3f74f81bf3d9a0b2a737
+      internalID: -285988015
       vertices: []
       indices: 
       edges: []
@@ -175,10 +175,10 @@ TextureImporter:
       name: weaving_sprite_sheet_2
       rect:
         serializedVersion: 2
-        x: 510
-        y: 341
-        width: 197
-        height: 232
+        x: 500
+        y: 300
+        width: 250
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 306e005e761c2d14aab671b88f897112
-      internalID: -1458795622
+      spriteID: 8710825c240d2984c9aaa9a4fff74ab0
+      internalID: 2074607177
       vertices: []
       indices: 
       edges: []
@@ -197,10 +197,10 @@ TextureImporter:
       name: weaving_sprite_sheet_3
       rect:
         serializedVersion: 2
-        x: 57
-        y: 79
-        width: 197
-        height: 232
+        x: 0
+        y: 0
+        width: 250
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,8 +209,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3e5a11ac7d5b804fb59ab550fe5f1c9
-      internalID: -895774852
+      spriteID: 57d1499d09fe8c346b0ef4022e5cfbcc
+      internalID: 1796442109
       vertices: []
       indices: 
       edges: []
@@ -219,10 +219,10 @@ TextureImporter:
       name: weaving_sprite_sheet_4
       rect:
         serializedVersion: 2
-        x: 278
-        y: 76
-        width: 197
-        height: 232
+        x: 250
+        y: 0
+        width: 250
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,8 +231,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5ade53eb968e384f8b960ab632a40b0
-      internalID: -1774746174
+      spriteID: d98a04bd7a5c5bd4db601a9e6f520889
+      internalID: -2122303287
       vertices: []
       indices: 
       edges: []
@@ -241,10 +241,10 @@ TextureImporter:
       name: weaving_sprite_sheet_5
       rect:
         serializedVersion: 2
-        x: 513
-        y: 76
-        width: 197
-        height: 232
+        x: 500
+        y: 0
+        width: 250
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,8 +253,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b537b7754605a1844bc65b060eda9d1e
-      internalID: 44755695
+      spriteID: 1d9ea41714b752449b32580d0706e11c
+      internalID: 356626401
       vertices: []
       indices: 
       edges: []
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4c8107674340f2745bf8000caa7ad8b0
+    spriteID: 12d384201a5fcd742ba07e255db71514
     internalID: 0
     vertices: []
     indices: 
@@ -273,12 +273,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      weaving_sprite_sheet_0: 1587625653
-      weaving_sprite_sheet_1: 890109480
-      weaving_sprite_sheet_2: -1458795622
-      weaving_sprite_sheet_3: -895774852
-      weaving_sprite_sheet_4: -1774746174
-      weaving_sprite_sheet_5: 44755695
+      weaving_sprite_sheet_0: 928822763
+      weaving_sprite_sheet_1: -285988015
+      weaving_sprite_sheet_2: 2074607177
+      weaving_sprite_sheet_3: 1796442109
+      weaving_sprite_sheet_4: -2122303287
+      weaving_sprite_sheet_5: 356626401
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

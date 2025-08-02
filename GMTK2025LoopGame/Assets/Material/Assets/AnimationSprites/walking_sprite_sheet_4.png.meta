@@ -1,25 +1,28 @@
 fileFormatVersion: 2
-guid: d44fef22bf225af4d914587d0c668133
+guid: 2d4d8a8286f2970488dec9ade3c9a1ba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3564296236833684327
-    second: walking_sprite_sheet_3_0
+      213: -8523807939873256611
+    second: walking_sprite_sheet_4_0
   - first:
-      213: -860578923091251270
-    second: walking_sprite_sheet_3_1
+      213: 7511409542478220668
+    second: walking_sprite_sheet_4_1
   - first:
-      213: 2320553946987683167
-    second: walking_sprite_sheet_3_2
+      213: -2550834273919264032
+    second: walking_sprite_sheet_4_2
   - first:
-      213: 7404263052123978465
-    second: walking_sprite_sheet_3_3
+      213: 5561254848990981963
+    second: walking_sprite_sheet_4_3
   - first:
-      213: 5121771330727291658
-    second: walking_sprite_sheet_3_4
+      213: 4939898473744954754
+    second: walking_sprite_sheet_4_4
   - first:
-      213: -3699722207723906960
-    second: walking_sprite_sheet_3_5
+      213: -4603716811476536794
+    second: walking_sprite_sheet_4_5
+  - first:
+      213: 524667837512360107
+    second: walking_sprite_sheet_4_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,133 +131,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walking_sprite_sheet_3_0
+      name: walking_sprite_sheet_4_0
       rect:
         serializedVersion: 2
-        x: 30
-        y: 317
-        width: 190
-        height: 235
+        x: 0
+        y: 300
+        width: 250
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 99444410573198ec0800000000000000
-      internalID: -3564296236833684327
+      spriteID: 5b31244673c91ac4dbb54dc6afaa937b
+      internalID: 92340653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking_sprite_sheet_3_1
+      name: walking_sprite_sheet_4_1
       rect:
         serializedVersion: 2
-        x: 275
-        y: 328
-        width: 195
-        height: 213
+        x: 250
+        y: 300
+        width: 250
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: abf25fb670c9e04f0800000000000000
-      internalID: -860578923091251270
+      spriteID: b1a2781803372aa4291b3213bc539c8e
+      internalID: 175619894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking_sprite_sheet_3_2
+      name: walking_sprite_sheet_4_2
       rect:
         serializedVersion: 2
-        x: 521
-        y: 342
-        width: 198
-        height: 187
+        x: 500
+        y: 300
+        width: 250
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f5dd45c1583443020800000000000000
-      internalID: 2320553946987683167
+      spriteID: e0613e2db8f177d498f1b2f3d52b2235
+      internalID: -824579187
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking_sprite_sheet_3_3
+      name: walking_sprite_sheet_4_3
       rect:
         serializedVersion: 2
-        x: 27
-        y: 54
-        width: 193
-        height: 225
+        x: 0
+        y: 0
+        width: 250
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1ea3665340a31c660800000000000000
-      internalID: 7404263052123978465
+      spriteID: ac33260b866f134458c2bb0d0be39ac5
+      internalID: -769517749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking_sprite_sheet_3_4
+      name: walking_sprite_sheet_4_4
       rect:
         serializedVersion: 2
-        x: 279
-        y: 45
-        width: 196
-        height: 224
+        x: 250
+        y: 0
+        width: 250
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a0ba7c493ef241740800000000000000
-      internalID: 5121771330727291658
+      spriteID: 2b24534e822df684e8315d6726a89de3
+      internalID: 408882630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking_sprite_sheet_3_5
+      name: walking_sprite_sheet_4_5
       rect:
         serializedVersion: 2
-        x: 530
-        y: 69
-        width: 198
-        height: 188
+        x: 500
+        y: 0
+        width: 250
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0781ef80142f7acc0800000000000000
-      internalID: -3699722207723906960
+      spriteID: 2ceb93bc2294d164489c3cee35ac6bce
+      internalID: -1241676993
       vertices: []
       indices: 
       edges: []
@@ -263,7 +266,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2d175a4e9d11fc046a39beb06df027ae
     internalID: 0
     vertices: []
     indices: 
@@ -272,7 +275,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      walking_sprite_sheet_4_0: 92340653
+      walking_sprite_sheet_4_1: 175619894
+      walking_sprite_sheet_4_2: -824579187
+      walking_sprite_sheet_4_3: -769517749
+      walking_sprite_sheet_4_4: 408882630
+      walking_sprite_sheet_4_5: -1241676993
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
