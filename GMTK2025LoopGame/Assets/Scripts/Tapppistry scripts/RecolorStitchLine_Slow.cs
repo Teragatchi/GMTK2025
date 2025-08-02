@@ -10,7 +10,6 @@ public class RecolorStitchLine_Slow : MonoBehaviour
     private Color32 roseColor = new Color32(182, 102, 115, 200);
     private float speed = 0.01f;
 
-    private bool isPlayerOnTop = false;
     private bool isColorBrown = false;
     private bool isColorRose = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
