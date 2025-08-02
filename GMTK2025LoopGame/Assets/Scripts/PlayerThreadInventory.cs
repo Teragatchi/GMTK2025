@@ -18,7 +18,10 @@ public class PlayerThreadInventory : MonoBehaviour
     public bool UseThread(Color color, float amount)
     {
         if (!threadInventory.ContainsKey(color) || threadInventory[color] < amount)
+        {
+            Debug.Log("Not Enough Thread");
             return false;
+        }
 
         threadInventory[color] -= amount;
         //UIThreadDisplay.Instance.UpdateColor(color, threadInventory[color]);
