@@ -70,6 +70,7 @@ public class PlayerMechanic : MonoBehaviour
         Vector3 direction = end - start;
         float distance = direction.magnitude;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        if (!playerThreadInv.UseThread(usedColor, distance *5)) return;
 
         GameObject thread = Instantiate(HookThreadObject, mid, Quaternion.Euler(0, 0, angle));
         thread.transform.localScale = new Vector3(distance, 0.2f, 0f);
@@ -86,7 +87,7 @@ public class PlayerMechanic : MonoBehaviour
         SpriteRenderer sr = thread.GetComponent<SpriteRenderer>();
         if (sr != null)
             sr.color = usedColor;
-        if (!playerThreadInv.UseThread(usedColor, distance *5)) return;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -100,7 +101,7 @@ public class PlayerMechanic : MonoBehaviour
             });
         }
 
-        if(collision.name == "Table")
+        if(collision.name == "Table" || collision.name == "ThreadObject")
         {
             PlayerIsFalling = false;
         }
@@ -108,9 +109,16 @@ public class PlayerMechanic : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.name == "Table")
+        if(collision.name == "Table" || collision.name == "ThreadObject")
         {
             PlayerIsFalling = true;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.name == "Table")
+        {
+            PlayerIsFalling = false;
         }
     }
 
