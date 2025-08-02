@@ -7,6 +7,10 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private float minZoom = 2f;
     [SerializeField] private float maxZoom = 10f;
 
+    [SerializeField] private Transform target;
+    [SerializeField] private float followSpeed = 5f;
+    [SerializeField] private Vector3 offset = new Vector3(0, 0, -10);
+
     private Camera cam;
 
     private void Awake()
@@ -23,5 +27,12 @@ public class CameraMovement : MonoBehaviour
             cam.orthographicSize -= scroll * zoomSpeed * Time.deltaTime;
             cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
         }
+    }
+    private void LateUpdate()
+    {
+        if (!target)
+            return;
+
+        transform.position = Vector3.Lerp(transform.position, target.position + offset, followSpeed * Time.deltaTime);
     }
 }
