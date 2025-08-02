@@ -22,7 +22,7 @@ public class RecolorStitchLine_Slow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        while(isPlayerOnTop == true)
+        if(isPlayerOnTop == true)
         {
             if (isColorBrown)
             {
