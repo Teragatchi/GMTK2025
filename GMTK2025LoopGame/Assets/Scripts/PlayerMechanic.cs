@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMechanic : MonoBehaviour
 {
-    [SerializeField] private float shrinkDuration = 0.7f;
+    [SerializeField] private float shrinkDuration = 0.3f;
     [SerializeField] private GameObject Player;
     private bool PlayerIsFalling;
 
@@ -21,7 +21,7 @@ public class PlayerMechanic : MonoBehaviour
         if( PlayerIsFalling)
         {
             StartCoroutine(ShrinkPlayerDeath());
-            RestartCurrentScene();
+            //RestartCurrentScene();
         }
     }
 
@@ -40,6 +40,7 @@ public class PlayerMechanic : MonoBehaviour
             PlayerIsFalling = false;
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.name == "Table")
@@ -63,6 +64,7 @@ public class PlayerMechanic : MonoBehaviour
 
         Player.transform.localScale = Vector3.zero;
         Destroy(Player);
+        RestartCurrentScene();
     }
     public void RestartCurrentScene()
     {
