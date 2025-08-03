@@ -11,6 +11,14 @@ public class SceneChangeScript : MonoBehaviour
     // Method to load the main scene by index
     public void LoadMainSceneByIndex()
     {
+        SceneManager.LoadScene(1); // Replace 1 with the actual build index of your main scene
+    }
+    public void LoadInstructionsSceneByIndex()
+    {
+        SceneManager.LoadScene(2); // Replace 1 with the actual build index of your main scene
+    }
+    public void LoadMenusSceneByIndex()
+    {
         SceneManager.LoadScene(0); // Replace 1 with the actual build index of your main scene
     }
 }
