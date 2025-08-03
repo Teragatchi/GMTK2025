@@ -32,5 +32,8 @@ public class PlayerMovement : MonoBehaviour
 
         rb.linearVelocity = direction * moveSpeed;
         _animate.SetBool("IsMoving", true);
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+        rb.rotation = angle;
     }
 }

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 732bea3220f7d2349966aad88110cf3e
+guid: 8b891e1c9ae66134eb544d938d80c0b8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6732998961539499055
-    second: TileableWood_0
+      213: 4135544827020362730
+    second: wood_table_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,9 +40,9 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 94, y: 85, z: 95, w: 90}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TileableWood_0
+      name: wood_table_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
+        x: 93
+        y: 85
+        width: 1614
+        height: 777
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f24c2afe1ea607d50800000000000000
-      internalID: 6732998961539499055
+      spriteID: ae3c04feb18646930800000000000000
+      internalID: 4135544827020362730
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TileableWood_0: 6732998961539499055
+      wood_table_0: 4135544827020362730
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

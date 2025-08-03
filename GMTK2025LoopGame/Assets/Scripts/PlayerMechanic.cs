@@ -64,6 +64,9 @@ public class PlayerMechanic : MonoBehaviour
 
     private void HookToObject(RaycastHit2D ray)
     {
+        Color active = UIThread.Instance.GetCurrentActiveColor();
+        if (active == Color.white) return;
+
         Color usedColor = UIThread.Instance.threadSlots[2].color;
 
         Debug.Log($"amt of {usedColor} remaining is {playerThreadInv.GetThreadAmount(usedColor)}");
@@ -75,7 +78,9 @@ public class PlayerMechanic : MonoBehaviour
         Vector3 direction = end - start;
         float distance = direction.magnitude;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        if (!playerThreadInv.UseThread(usedColor, distance *5)) return;
+
+        UIThread.Instance.RemoveColorIfEmpty(usedColor);
+        if (!playerThreadInv.UseThread(usedColor, distance *4)) return;
 
         GameObject thread = Instantiate(HookThreadObject, mid, Quaternion.Euler(0, 0, angle));
         thread.transform.localScale = new Vector3(distance, 0.2f, 0f);
@@ -123,7 +128,6 @@ public class PlayerMechanic : MonoBehaviour
         if (collision.tag == "Walkable")
         {
             _animation.SetBool("IsWeaving", true);
-            Debug.Log("player entered Thread");
         }
 
     }
@@ -135,23 +139,11 @@ public class PlayerMechanic : MonoBehaviour
             safeSurfaces.Remove(collision);
         }
 
-        //if (collision.name == "Table" )
-        //{
-        //    PlayerIsFalling = true;
-        //}
         if (collision.tag == "Walkable")
         {
             _animation.SetBool("IsWeaving", false);
-            Debug.Log("player LEFT Thread");
         }
     }
-    //private void OnTriggerStay2D(Collider2D collision)
-    //{
-    //    if(collision.name == "Table" || collision.tag == "Walkable")
-    //    {
-    //        PlayerIsFalling = false;
-    //    }
-    //}
 
     private IEnumerator ShrinkPlayerDeath()
     {
