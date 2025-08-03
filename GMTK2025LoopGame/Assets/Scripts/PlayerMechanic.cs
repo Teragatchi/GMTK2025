@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerMechanic : MonoBehaviour
 {
@@ -83,7 +81,7 @@ public class PlayerMechanic : MonoBehaviour
         if (!playerThreadInv.UseThread(usedColor, distance *4)) return;
 
         GameObject thread = Instantiate(HookThreadObject, mid, Quaternion.Euler(0, 0, angle));
-        thread.transform.localScale = new Vector3(distance, 0.2f, 0f);
+        thread.transform.localScale = new Vector3(distance, 0.1f, 0f);
         int layer = LayerMask.NameToLayer("IgnoreRaycast");
         if (layer == -1)
         {

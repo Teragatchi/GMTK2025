@@ -8,6 +8,9 @@ TagManager:
   - Brown
   - Rose
   - Walkable
+  - Heart
+  - Eye
+  - Leaf
   layers:
   - Default
   - TransparentFX

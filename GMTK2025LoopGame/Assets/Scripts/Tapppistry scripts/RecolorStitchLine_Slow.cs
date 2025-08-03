@@ -1,17 +1,24 @@
-using System.Collections;
-using System.Threading;
+
 using UnityEngine;
 
 public class RecolorStitchLine_Slow : MonoBehaviour
 {
+    [SerializeField] UIThread PlayerThread;
+    [SerializeField] Color HeartColor;
+    [SerializeField] Color EyeColor;
+    [SerializeField] Color LeafColor;
+
+
     private SpriteRenderer mySpriteRenderer;
     private Color32 defaultColor = new Color32(63, 63, 63, 103);
     private Color32 brownColor = new Color32(142, 121, 128, 200);
     private Color32 roseColor = new Color32(182, 102, 115, 200);
     private float speed = 0.01f;
 
-    private bool isColorBrown = false;
-    private bool isColorRose = false;
+    private bool isColorHeart = false;
+    private bool isColorEye = false;
+    private bool isColorLeaf = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,34 +28,68 @@ public class RecolorStitchLine_Slow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isColorBrown)
+        Color ActiveColor = PlayerThread.GetCurrentActiveColor();
+
+        if (isColorHeart)
         {
-            Debug.Log("Change color to brown");
+            if(ActiveColor == HeartColor)
+            {
+            Debug.Log("Change color to red");
             speed += Time.deltaTime;
-            mySpriteRenderer.color = Color32.Lerp(defaultColor, brownColor, speed);
+            mySpriteRenderer.color = Color32.Lerp(defaultColor, HeartColor, speed);
+            }
+
         }
-        if (isColorRose)
+        if (isColorEye)
         {
+            if(ActiveColor ==  EyeColor)
+            {
             Debug.Log("Change color to rose");
             speed += Time.deltaTime;
-            mySpriteRenderer.color = Color32.Lerp(defaultColor, roseColor, speed);
+            mySpriteRenderer.color = Color32.Lerp(defaultColor, EyeColor, speed);
+
+            }
+        }
+        if (isColorLeaf)
+        {
+            if(ActiveColor == LeafColor)
+            {
+                Debug.Log("Change color to rose");
+                speed += Time.deltaTime;
+                mySpriteRenderer.color = Color32.Lerp(defaultColor, LeafColor, speed);
+            }
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision )
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "PlayerBody")
+        if (collision.CompareTag("Player"))
         {
-            if (this.gameObject.tag == "Brown")
+            // Set flags once when entering
+            if (gameObject.CompareTag("Heart"))
             {
-                isColorBrown = true;
-                isColorRose = false;
+                isColorHeart = true;
             }
-            else if (this.gameObject.tag == "Rose")
+            else if (gameObject.CompareTag("Eye"))
             {
-                isColorRose = true;
-                isColorBrown = false;
+                isColorEye = true;
             }
+            else if (gameObject.CompareTag("Leaf"))
+            {
+                isColorLeaf = true;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            // Reset all flags
+            isColorHeart = false;
+            isColorEye = false;
+            isColorLeaf = false;
+            speed = 0.01f;
         }
     }
 }
