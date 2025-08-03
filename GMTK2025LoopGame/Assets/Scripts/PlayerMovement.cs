@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] public Camera mainCamera;
+    [SerializeField] private Animator _animate;
 
     private Rigidbody2D rb;
 
@@ -25,9 +26,11 @@ public class PlayerMovement : MonoBehaviour
         if (Vector2.Distance(mouseWorldPos, transform.position) < 0.5f)
         {
             rb.linearVelocity = Vector2.zero;
+            _animate.SetBool("IsMoving", false);
             return;
         }
 
         rb.linearVelocity = direction * moveSpeed;
+        _animate.SetBool("IsMoving", true);
     }
 }

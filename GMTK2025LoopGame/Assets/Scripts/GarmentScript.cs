@@ -36,21 +36,25 @@ public class GarmentScript : MonoBehaviour
         Vector3 startScale = transform.localScale;
         float elapsed = 0f;
 
-        Vector3 shrinkDifference = _initialScale / MaxBites;
+        float shrinkFactor = 1f - (1f / MaxBites); // uniform scale reduction per bite
+        Vector3 shrinkDifference = startScale * shrinkFactor;
 
         while (elapsed < shrinkDuration)
         {
             float t = elapsed / shrinkDuration;
-            transform.localScale = Vector3.Lerp(startScale, transform.localScale - shrinkDifference, t);
+            transform.localScale = Vector3.Lerp(startScale, shrinkDifference, t);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
         //transform.localScale -= shrinkDifference;
         onComplete?.Invoke();
-        if(currentBiteCount >=MaxBites)
+        
+        if(currentBiteCount >= MaxBites)
         {
             Destroy(gameObject);
         }
+
+        isBeingEaten = false;
     }
 }

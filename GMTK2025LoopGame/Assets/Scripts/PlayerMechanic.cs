@@ -17,14 +17,16 @@ public class PlayerMechanic : MonoBehaviour
     private PlayerMovement playerMoveScript;
     private PlayerThreadInventory playerThreadInv;
     private Vector3 MousePos;
-
     private HashSet<Collider2D> safeSurfaces = new();
+    private Animator _animation;
+
     public bool PlayerIsFalling => safeSurfaces.Count == 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         playerMoveScript = GetComponent<PlayerMovement>();
         playerThreadInv = GetComponent<PlayerThreadInventory>();
+        _animation = Player.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -118,11 +120,11 @@ public class PlayerMechanic : MonoBehaviour
         //{
         //    PlayerIsFalling = false;
         //}
-        //if (collision.tag == "Walkable")
-        //{
-        //    PlayerIsFalling = false;
-        //    Debug.Log("player entered Thread");
-        //}
+        if (collision.tag == "Walkable")
+        {
+            _animation.SetBool("IsWeaving", true);
+            Debug.Log("player entered Thread");
+        }
 
     }
 
@@ -137,11 +139,11 @@ public class PlayerMechanic : MonoBehaviour
         //{
         //    PlayerIsFalling = true;
         //}
-        //if (collision.tag == "Walkable")
-        //{
-        //    PlayerIsFalling = true;
-        //    Debug.Log("player LEFT Thread");
-        //}
+        if (collision.tag == "Walkable")
+        {
+            _animation.SetBool("IsWeaving", false);
+            Debug.Log("player LEFT Thread");
+        }
     }
     //private void OnTriggerStay2D(Collider2D collision)
     //{
@@ -153,19 +155,19 @@ public class PlayerMechanic : MonoBehaviour
 
     private IEnumerator ShrinkPlayerDeath()
     {
-        Vector3 startScale = Player.transform.localScale;
+        Vector3 startScale = transform.localScale;
         float elapsed = 0f;
 
         while (elapsed < shrinkDuration)
         {
             float t = elapsed / shrinkDuration;
-            Player.transform.localScale = Vector3.Lerp(startScale, Vector3.zero, t);
+            transform.localScale = Vector3.Lerp(startScale, Vector3.zero, t);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        Player.transform.localScale = Vector3.zero;
-        Destroy(Player);
+        transform.localScale = Vector3.zero;
+        Destroy(gameObject);
         RestartCurrentScene();
     }
     public void RestartCurrentScene()
